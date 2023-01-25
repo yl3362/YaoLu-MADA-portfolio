@@ -6,3 +6,67 @@ output:
 ---
 
 Placeholder file for the future R coding exercise.
+```{r}
+#load dslabs package
+library("dslabs")
+library('tidyverse')
+#look at help file for gapminder data
+help(gapminder)
+#get an overview of data structure
+str(gapminder)
+#get a summary of data
+summary(gapminder)
+#determine the type of object gapminder is
+class(gapminder)
+#select only africa
+africadata <- gapminder[which(gapminder$continent=='Africa'),]
+#get an overview of data structure
+str(africadata)
+#get a summary of data
+summary(africadata)
+#infant_mortality and life_expectancy
+moex <- africadata %>% select(c('infant_mortality','life_expectancy'))
+#population and life_expectancy
+poex <- africadata %>% select(c('population','life_expectancy'))
+#get an overview of data structure
+str(moex)
+str(poex)
+#get a summary of data
+summary(moex)
+summary(poex)
+
+#scatter plot infant mortality VS life expectancy
+plot(moex$infant_mortality,moex$life_expectancy, main="infant mortality VS life expectancy", xlab="infant mortality", ylab="life expectancy", pch=19)
+```
+
+```{r}
+#scatter plot population size VS life expectancy
+plot(poex$population,poex$life_expectancy, main="population size VS life expectancy", xlab="population size", ylab="life expectancy", pch=19,log='x')
+```
+
+```{r}
+#the year which infant_mortality is NA
+namor <-africadata$year[which(is.na(africadata$infant_mortality))]
+table(namor)
+```
+
+```{r}
+#2000 year
+afri2000 <- africadata[which(africadata$year==2000),]
+str(afri2000)
+summary(afri2000)
+
+#plot 
+plot(afri2000$infant_mortality,afri2000$life_expectancy, main="infant mortality VS life expectancy", xlab="infant mortality", ylab="life expectancy", pch=19)
+#plot
+plot(afri2000$population,afri2000$life_expectancy, main="population size VS life expectancy", xlab="population size", ylab="life expectancy", pch=19,log='x')
+```
+
+```{r}
+fit1 <- lm(life_expectancy~infant_mortality,data=afri2000)
+summary(fit1)
+fit2 <- lm(life_expectancy~population,data=afri2000)
+summary(fit2)
+```
+
+Here we know infant mortality has statistically significant negative relationship with life-expectancy. But we don't have enough statistical evidence about the relationship between population and life expectancy.
