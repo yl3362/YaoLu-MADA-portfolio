@@ -6,6 +6,7 @@ output:
 ---
 
 Placeholder file for the future R coding exercise.
+
 ```{r}
 #load dslabs package
 library("dslabs")
@@ -70,3 +71,121 @@ summary(fit2)
 ```
 
 Here we know infant mortality has statistically significant negative relationship with life-expectancy. But we don't have enough statistical evidence about the relationship between population and life expectancy.
+
+**--------------------------------------------------------------------------------------------------------------------------**
+
+**THIS SECTION ADDED BY SHIWANI SAPKOTA**
+
+**I am interested on looking at infant mortality, life expectancy, fertility, and population variables for European countries in the year 2010 using gapminder data.**
+
+**DATA PROCESSING**
+
+```{r}
+# Creating an object europedata containing only the European countries
+europedata <- gapminder %>% filter(continent == "Europe")
+
+# Looking at the structure and summary of object (europedata)
+str(europedata)
+summary(europedata)
+glimpse(europedata)
+```
+
+```{r}
+# Looking at the years having missing data for infant mortality in europedata
+infantmort_yrs_europe <- europedata %>% 
+                        filter(is.na(infant_mortality))
+table(infantmort_yrs_europe$year)
+```
+
+```{r}
+# Creating a new object named europedata_2010 by using only year 2010 data from europedata
+europedata_2010 <- europedata %>%
+                   filter(year == 2010)
+
+# Looking at the structure and summary of object (europedata_2010)
+str(europedata_2010)
+summary(europedata_2010)
+glimpse(europedata_2010)
+```
+
+```{r}
+# Looking at the top 5 European countries having highest infant mortality for the year 2010
+europe_infantmort <- europedata_2010 %>% select (country, infant_mortality) %>%
+arrange(desc(`infant_mortality`))
+europe2010_infantmort <- head(europe_infantmort, 5)
+europe2010_infantmort
+
+# Looking at the top 5 European countries having highest life expectancy for the year 2010
+europe_lifeexpect <- europedata_2010 %>% select (country, life_expectancy) %>%
+arrange(desc(`life_expectancy`))
+europe2010_lifeexpect <- head(europe_lifeexpect, 5)
+europe2010_lifeexpect
+
+# Looking at the top 5 European countries having largest population size for the year 2010
+europe_pop <- europedata_2010 %>% select (country, population) %>%
+arrange(desc(`population`))
+europe2010_pop <- head(europe_pop, 5)
+europe2010_pop
+```
+
+**DATA VISUALIZATION**
+
+```{r}
+# Creating the object country to sort the 5 European countries having the highest infant mortality in the year 2010
+europe2010_infantmort <- europe2010_infantmort %>%
+mutate(country = as_factor(country),
+country <- fct_reorder(country, infant_mortality))
+
+# Plotting the horizontal barplot for visualizing top 5 European countries with the highest infant mortality in 2010
+ggplot(data = europe2010_infantmort, aes(x = country, y = `infant_mortality`)) +
+geom_bar(stat = "identity", width = 0.75, color = "blue", fill = "steelblue") +
+coord_flip() +
+labs(title = "Top 5 European countries with the highest infant mortality in 2010",
+x = "Country", y = "Infant Mortality") +
+theme_classic() +
+theme(axis.text = element_text(face="bold"), plot.title = element_text(hjust = 0.5, size = 14),
+axis.title = element_text(size = 14))
+```
+
+```{r}
+# Plotting fertility as a function of infant mortality in the year 2010 for European countries
+ggplot(data = europedata_2010,
+       (aes(x = infant_mortality, y = fertility))) +
+  theme_classic() +
+  geom_point(size = 1.0) +
+  labs(title = "Fertility as a function of infant mortality in the year 2010 for European countries",
+       x = "Infant Mortality", y = "Fertility") +
+  theme(axis.text = element_text(face = "bold"), plot.title = element_text(hjust = 0.5, size = 14),
+        axis.title = element_text(size = 14))
+```
+
+```{r}
+# Plotting life expectancy as a function of population size in the year 2010 for European countries
+ggplot(data = europedata_2010,
+       (aes(x = population, y = life_expectancy))) +
+  theme_classic() +
+  geom_point(size = 1.0) +
+  scale_x_continuous(trans = 'log10') +
+  labs(title = "Life expectancy as a function of population size in the year 2010 for European countries", 
+       x = "Population (In Logscale)", y = "Life Expectancy (In Years)") +
+  theme(axis.text = element_text(face = "bold"), plot.title =   element_text(hjust = 0.5, size = 14),
+        axis.title = element_text(size = 14))
+```
+
+**FITTING MODEL**
+
+```{r}
+# Using lm function to fit linear regression model using fertility as the outcome and infant mortality as the predictor for the year 2010
+fit3 <- lm(fertility ~ infant_mortality, data = europedata_2010)
+# Tabulating the output fit3 from lm using broom package
+broom::tidy(fit3)
+
+# Using lm function to fit linear regression model using life expectancy as the outcome and population size as the predictor for the year 2010
+fit4 <- lm(life_expectancy ~ population, data = europedata_2010)
+# Tabulating the output fit4 from lm using broom package
+broom::tidy(fit4)
+```
+
+**CONCLUSION**
+
+**Based on the p-values for each fit, we found somewhat statistically significant negative correlation between infant mortality and fertility in the year 2010 for European countries (p-value: 0.0429) while we found no statistically significant correlation between population size and life expectancy in the year 2010 for European countries (p-value: 0.345 ).**
