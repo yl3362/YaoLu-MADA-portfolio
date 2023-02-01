@@ -11,7 +11,7 @@ This data include 11 variables. This data set describes a time series data for e
 library(ggplot2)
 library(here)
 
-data_location1 <- here::here("rawdata","Weekly_Counts_of_Deaths_by_Jurisdiction_and_Age.csv")
+data_location1 <- here::here('mod4',"rawdata","Weekly_Counts_of_Deaths_by_Jurisdiction_and_Age.csv")
 
 data1 <- read.csv(data_location1)
 
@@ -48,7 +48,7 @@ We can apply time series analysis. Such as using ACF, PACF to find best ARIMA mo
 
 
 ```{r}
-table_file1 = here("processdata","resulttable1.rds")
+table_file1 = here("mod4","processdata","resulttable1.rds")
 saveRDS(data1, file = table_file1)
 ```
 
