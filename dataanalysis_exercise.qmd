@@ -11,13 +11,12 @@ This data include 11 variables. This data set describes a time series data for e
 library(ggplot2)
 library(here)
 
-data_location1 <- here::here('mod4',"rawdata","Weekly_Counts_of_Deaths_by_Jurisdiction_and_Age.csv")
-
-data1 <- read.csv(data_location1)
+data1 <- read.csv("mod4/rawdata/Weekly_Counts_of_Deaths_by_Jurisdiction_and_Age.csv")
 
 p <- ggplot(data = data1[which(data1$Jurisdiction=="Georgia"&data1$Type=='Predicted (weighted)'),], aes(x = Week, y = Number.of.Deaths, group = Age.Group,color=Age.Group))
 p + geom_line()+ggtitle("number of death(weighted) in GA") +  xlab("week") + ylab("death")
 ```
+
 Here we can see that most death happened at aged people. Few young people die. Then we check the 'Week' variables. We can see that The week is the number of week in each year. Then we want to see a time series week.
 
 ```{r}
@@ -41,15 +40,12 @@ p + geom_line()+ggtitle("number of death(weighted) in GA") +  xlab("week") + yla
 
 ```
 
-We can see that there is a peak at around 350 weeks.
-Here we can see that most death happened at aged people. Few young people die.
+We can see that there is a peak at around 350 weeks. Here we can see that most death happened at aged people. Few young people die.
 
 We can apply time series analysis. Such as using ACF, PACF to find best ARIMA model.
 
-
 ```{r}
-table_file1 = here("mod4","processdata","resulttable1.rds")
-saveRDS(data1, file = table_file1)
+saveRDS(data1, file = "mod4/processdata/cleandata.rds")
 ```
 
 ```{r}
@@ -58,6 +54,110 @@ data1$Age.Group[which(data1$Age.Group=='Under 25 years')] <- '24 or younger'
 ```
 
 ```{r}
-boxplot(Number.of.Deaths~Age.Group,data=data1[which(data1$Jurisdiction=="Georgia"&data1$Type=='Predicted (weighted)'),], main="number of death in GA",        xlab="age", ylab="death")
+boxplot(Number.of.Deaths~Age.Group,data=data1[which(data1$Jurisdiction=="Georgia"&data1$Type=='Predicted (weighted)'),], main="number of deaths in GA",        xlab="age", ylab="deaths")
 ```
----
+
+--------------------------------------------------------------
+
+
+**---------------------------------------**
+
+**THIS SECTION ADDED BY IRENE CAVROS**
+
+**---------------------------------------**
+
+#### Load packages
+
+```{r}
+library(stringr)
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(tidyverse)
+```
+
+#### Read and check clean RDS file 
+
+```{r}
+
+deathdata_clean_INC <- readRDS("mod4/processdata/cleandata.rds")
+
+str(deathdata_clean_INC)
+head(deathdata_clean_INC)
+```
+
+###### It looks like there are observations here with state abbreviation 'US.' I am going to remove these since it is likely an aggregate of all states and not an actual state in itself. But before I do this, I will look at deaths in the US by year. 
+
+#### Look at US only data 
+```{r}
+US <- deathdata_clean_INC %>%
+  filter(State.Abbreviation %in% "US")
+```
+
+#### Plot of US data by year
+```{r}
+ggplot (US, aes(x=Year, y=Number.of.Deaths)) + 
+  geom_bar(stat = 'identity') + 
+  labs(x = "Year", y = "Deaths", 
+       title = "Deaths in the US by year")
+```
+
+
+#### New smaller dataset only looking at only 4 variables, 
+
+```{r}
+deaths_subset_INC <- deathdata_clean_INC %>%
+    select(State.Abbreviation, Year, Age.Group, Number.of.Deaths)
+```
+
+#### Remove observations with state abbreviation US 
+
+```{r}
+state_deaths_INC <- deaths_subset_INC %>%
+    filter(!State.Abbreviation %in% c('US'))
+```
+
+#### Subset for year 2015
+
+```{r}
+deaths_2015_INC <- state_deaths_INC %>% 
+    filter(Year==2015)
+```
+
+#### Subset for year 2016 
+
+```{r}
+deaths_2016_INC <- state_deaths_INC %>% 
+    filter(Year==2016)
+```
+
+#### Subset for year 2017
+
+```{r}
+deaths_2017_INC <- state_deaths_INC %>% 
+    filter(Year==2017)
+```
+
+#### Subset for year 2018
+
+```{r}
+deaths_2018_INC <- state_deaths_INC %>% 
+    filter(Year==2018)
+```
+
+#### Subset for year 2019
+    
+```{r}
+deaths_2019_INC <- state_deaths_INC %>% 
+    filter(Year==2019)
+```
+
+#### Bar graph of deaths by state in the year 2015
+
+```{r}
+ggplot (state_deaths_INC, aes(x=State.Abbreviation, y=Number.of.Deaths)) + 
+  geom_bar(stat = 'identity') + 
+  coord_flip() +
+  labs(x = "State", y = "Deaths", 
+       title = "Deaths by State in 2015")
+```
