@@ -6,3 +6,109 @@ output:
 ---
 
 Placeholder file for the future visualization exercise.
+
+source https://fivethirtyeight.com/features/how-every-nfl-teams-fans-lean-politically/
+
+data https://github.com/fivethirtyeight/data/tree/master/nfl-fandom
+
+```{r}
+library(naniar)
+library(tibble)
+library(dplyr)
+library(cowplot)
+library(gridExtra)
+library(ggplot2)
+
+data1 <- read.csv("mod5/NFL_fandom_data-google_trends.csv",header = TRUE,skip=1)
+
+a <- miss_var_summary(data1)
+glimpse(data1)
+
+data2 <-data1
+
+data2[,1] <- data1[,1]
+data2[,2:9] <- data.frame(sapply(data1[,2:9], function(x) as.numeric(gsub("%", "", x))))
+
+colnames(data2)[9] ="Trumpvote"
+
+glimpse(data2)
+
+p1 <- ggplot(data = data2, mapping = aes(x = Trumpvote, y = NBA))+geom_point()+xlim(20,80)+ylim(0,50)+ggtitle("NBA")+geom_smooth(method = "lm")
+
+
+
+p2 <- ggplot(data = data2, mapping = aes(x = Trumpvote, y = MLB))+geom_point()+xlim(20,80)+ylim(0,50)+ggtitle("MLB")+geom_smooth(method = "lm")
+
+p3 <- ggplot(data = data2, mapping = aes(x = Trumpvote, y = NHL))+geom_point()+xlim(20,80)+ylim(0,50)+ggtitle("NHL")+geom_smooth(method = "lm")
+
+p4 <- ggplot(data = data2, mapping = aes(x = Trumpvote, y = NFL))+geom_point()+xlim(20,80)+ylim(0,50)+ggtitle("NFL")+geom_smooth(method = "lm")
+
+p5 <- ggplot(data = data2, mapping = aes(x = Trumpvote, y = CBB))+geom_point()+xlim(20,80)+ylim(0,50)+ggtitle("CBB")+geom_smooth(method = "lm")
+
+p6 <- ggplot(data = data2, mapping = aes(x = Trumpvote, y = NASCAR))+geom_point()+xlim(20,80)+ylim(0,50)+ggtitle("NASCAR")+geom_smooth(method = "lm")
+
+p7 <- ggplot(data = data2, mapping = aes(x = Trumpvote, y = CFB))+geom_point()+xlim(20,80)+ylim(0,50)+ggtitle("CFB")+geom_smooth(method = "lm")
+
+
+grid.arrange(p1,p2,p3,p4,p5,p6,p7, ncol=7, nrow =1)
+
+
+
+```
+First plot is finished.
+And second plot include a map which I am not familiar with now. Maybe I will learn it next time.
+
+```{r}
+data3 <- read.csv("mod5/NFL_fandom_data-surveymonkey.csv",header = TRUE,skip=1)
+```
+Initial data is not good to plot. So we need to do data cleaning and generate a new data frame.
+```{r}
+#seems wrong,just leave it here in case I need to come back
+data4 <- data3 %>% select(c(1,21))
+
+data4[34:66,] <- data3 %>% select(c(1,22))
+
+data4[67:99,] <- data3 %>% select(c(1,23))
+
+data4[,3] <- rep(c('GOP','DEM','IND'),each=33)
+
+colnames(data4)[2:3] =c("percent",'partisan')
+
+ ggplot(data4, aes(x = Team, y = percent))+
+  geom_col(aes(fill = partisan))+ coord_flip()
+```
+Then rank by difference.
+```{r}
+data5 <- data3 %>% select(c(1,21:23))
+colnames(data5)[2:4] <- c('gop','dem','ind')
+glimpse(data5)
+
+
+ data5[,2:4] <- data.frame(sapply(data5[,2:4], function(x) as.numeric(gsub("%", "", x))))
+ 
+ glimpse(data5)
+ data5$dif <- data5$dem-data5$gop
+data5 <- data5[order(-data5$dif),]
+data5$rank <- 1:33
+data5 <- data5[order(data5$Team),]
+```
+
+```{r}
+data4 <- data4[order(data4$Team),]
+data4$rank <- rep(data5$rank,each=3)
+
+data6 <- data4[order(data4$rank),]
+
+level <- c('GOP','IND','DEM')
+
+
+
+  data6[,2] <- data.frame(sapply(data6[,2], function(x) as.numeric(gsub("%", "", x))))
+  
+   ggplot(data6, aes(x = reorder(Team,-rank), y = percent))+
+  geom_col(aes(fill = factor(partisan,levels=level)))+ coord_flip()
+```
+
+
+
+
