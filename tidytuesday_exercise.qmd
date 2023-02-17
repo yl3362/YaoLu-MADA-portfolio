@@ -4,5 +4,86 @@ output:
   html_document:
     toc: FALSE
 ---
+```{r}
+# Get the Data
 
-Placeholder file for the future Tidy Tuesday exercise.
+# Read in with tidytuesdayR package 
+# Install from CRAN via: install.packages("tidytuesdayR")
+# This loads the readme and all the datasets for the week of interest
+
+# Either ISO-8601 date or year/week works!
+
+library('tidytuesdayR')
+tuesdata <- tidytuesdayR::tt_load('2023-02-14')
+tuesdata <- tidytuesdayR::tt_load(2023, week = 7)
+age_gaps <- tuesdata$age_gaps
+```
+
+
+First we want to have a look at if there are some directors who generate multiple movies.
+```{r}
+library(dplyr)
+library(ggplot2)
+library(forcats)
+results <- age_gaps %>%
+  group_by(director) %>%
+  summarize(count = n_distinct(movie_name))
+
+results1 <- results[order(-results$count),]
+
+barplot(results1$count[1:3],names.arg=results1$director[1:3])
+
+```
+Here we can see that, base on the number of movies, Woody Allen, Martin Scorsese and Steven Spielberg are the top 3 directors.
+
+Here we focus on thess three directors to explore our data.
+
+We want to have a look at the age distribution among three directors.
+
+```{r}
+library(tidyr)
+df <- age_gaps[which(age_gaps$director %in% c('Woody Allen','Martin Scorsese','Steven Spielberg')),]
+
+df1 <- gather(df,key='actorgroup',value='age',12:13) 
+
+df1 %>% 
+    mutate(actorgroup=if_else(actorgroup=='actor_1_age','older','younger')) %>%
+    ggplot( aes(x=director, y=age,fill=actorgroup)) + 
+    geom_boxplot()+ggtitle('age group by director')
+
+```
+Here we can see that, director Woody Allen like to choose aged older actor. From here, looks like age difference is biggest. So we would like to have a look at the difference.
+
+```{r}
+df %>%
+    ggplot( aes(x=director, y=age_difference)) + 
+    geom_boxplot()
+```
+
+Hard to say if the age_difference are different among these directors.
+So, I want to do some stitistical test.
+
+```{r}
+library(ggpubr)
+ggboxplot(df,x = 'director', y = 'age_difference',
+          palette = "jco",exact=FALSE)+ 
+  stat_compare_means()+ggtitle('age difference')
+```
+
+So, they are not all same. Then I can try tukeytest.
+
+```{r}
+TukeyHSD(aov(lm(df$age_difference~df$director)))
+```
+
+Suggestion for script writer. Woody Allen prefer large age_difference than Martin Scorsese. So, if you have a script with large age_diffenence, go to talk to Woody Allen rather than Martin Scorsese. Woody Allen will have a higher chance to accept your script.
+
+```{r}
+df2 <- filter(df1,actorgroup=='actor_1_age')
+  TukeyHSD(aov(lm(df2$age~df2$director)))
+  
+df3 <- filter(df1,actorgroup=='actor_2_age')
+TukeyHSD(aov(lm(df3$age~df3$director)))
+```
+
+Here we can see that, there is no difference for actor age. No matter how old is the actor. You probably have same chance to be accepted by either these three directors. Don't worry your age, you have same chance as older or younger actor.
