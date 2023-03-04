@@ -1,0 +1,33 @@
+---
+title: "exploration"
+format: html
+editor: visual
+---
+
+## exploration
+
+```{r}
+library(DataExplorer)
+library(skimr)
+library(here)
+library(ggplot2)
+#load data
+exp1 <- readRDS(here("fluanalysis", "data", "processed_data.rds"))
+
+skim(exp1)
+
+#Summary
+summary(exp1)
+
+#Histogram and Density Plot
+plot_histogram(exp1)
+plot_density(exp1)
+
+#boxplot plot for SwollenLymphNodes
+ggplot(exp1,aes(x=SwollenLymphNodes, y=BodyTemp))+
+  geom_boxplot()
+#boxplot plot for ChestCongestion
+ggplot(exp1,aes(x=ChestCongestion, y=BodyTemp))+
+  geom_boxplot()
+```
+

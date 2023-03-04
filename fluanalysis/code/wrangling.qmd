@@ -1,0 +1,28 @@
+---
+title: "wrangling"
+format: html
+editor: visual
+---
+
+## Wrangling revisited
+
+```{r}
+library(here)
+library(skimr)
+library(tidyverse)
+#load data
+t1 <- readRDS(here::here('fluanalysis','data','SympAct_Any_Pos.Rda'))
+head(t1)
+skim(t1)
+
+#remove columns contain these strings and remove NA
+t2 <- t1 %>%
+  dplyr::select(-contains(c("Score", "Total", "FluA", "FluB", "Dxname", "Activity", "Unique.Visit"))) %>%
+  drop_na()
+glimpse(t2)
+#save the rds
+saveRDS(t2, file = here("fluanalysis", "data", "processed_data.rds"))
+
+```
+
+

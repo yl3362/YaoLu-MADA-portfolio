@@ -1,0 +1,54 @@
+---
+title: "fitting"
+format: html
+editor: visual
+---
+
+## fitting with previous lm function
+
+```{r}
+library(here)
+
+fit1 <- readRDS(here("fluanalysis", "data", "processed_data.rds"))
+
+#modeling with RunnyNose
+
+lm1 <- lm(BodyTemp~RunnyNose,data=fit1)
+
+#modeling with all
+
+lm2 <- lm(BodyTemp~.,data=fit1)
+
+#compare lm1 and lm2
+AIC(lm1)
+AIC(lm2)
+anova(lm1,lm2)
+```
+Both AIC method and anove test show that lm2 is better than lm1 statistically.
+
+```{r}
+#logit model with RunnyNose
+
+logit1 <- glm(Nausea ~RunnyNose, data = fit1, family = "binomial")
+
+#logit model will all other
+
+logit2 <- glm(Nausea ~., data = fit1, family = "binomial")
+
+logit1
+logit2
+```
+AIC shows that logit2 is better than logit1.
+
+#fitting by the method in this modules
+```{r}
+install.packages('tidymodels')
+library(tidymodels)
+#set the engine
+engine1<- linear_reg() %>%
+  set_engine("lm") 
+
+#fit the model
+
+lm1a <- engine1 %>%  fit(BodyTemp~RunnyNose, data=fit1)
+```
