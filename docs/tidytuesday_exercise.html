@@ -169,6 +169,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-flu-analysis" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Flu Analysis</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-flu-analysis">    
+        <li>
+    <a class="dropdown-item" href="././fluanalysis/code/exploration.html">
+ <span class="dropdown-text">Exploration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="././fluanalysis/code/wrangling.html">
+ <span class="dropdown-text">Wrangling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="././fluanalysis/code/fitting.html">
+ <span class="dropdown-text">Fitting</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -260,6 +279,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'dplyr'</code></pre>
 </div>
@@ -273,15 +295,15 @@ Attaching package: 'dplyr'</code></pre>
 
     intersect, setdiff, setequal, union</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> age_gaps <span class="sc">%&gt;%</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(director) <span class="sc">%&gt;%</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n_distinct</span>(movie_name))</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>results1 <span class="ot">&lt;-</span> results[<span class="fu">order</span>(<span class="sc">-</span>results<span class="sc">$</span>count),]</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(results1<span class="sc">$</span>count[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],<span class="at">names.arg=</span>results1<span class="sc">$</span>director[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> age_gaps <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(director) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n_distinct</span>(movie_name))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>results1 <span class="ot">&lt;-</span> results[<span class="fu">order</span>(<span class="sc">-</span>results<span class="sc">$</span>count),]</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(results1<span class="sc">$</span>count[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],<span class="at">names.arg=</span>results1<span class="sc">$</span>director[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="tidytuesday_exercise_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -290,41 +312,41 @@ Attaching package: 'dplyr'</code></pre>
 <p>Here we focus on thess three directors to explore our data.</p>
 <p>We want to have a look at the age distribution among three directors.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> age_gaps[<span class="fu">which</span>(age_gaps<span class="sc">$</span>director <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Woody Allen'</span>,<span class="st">'Martin Scorsese'</span>,<span class="st">'Steven Spielberg'</span>)),]</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">gather</span>(df,<span class="at">key=</span><span class="st">'actorgroup'</span>,<span class="at">value=</span><span class="st">'age'</span>,<span class="dv">12</span><span class="sc">:</span><span class="dv">13</span>) </span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> </span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">actorgroup=</span><span class="fu">if_else</span>(actorgroup<span class="sc">==</span><span class="st">'actor_1_age'</span>,<span class="st">'older'</span>,<span class="st">'younger'</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>director, <span class="at">y=</span>age,<span class="at">fill=</span>actorgroup)) <span class="sc">+</span> </span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()<span class="sc">+</span><span class="fu">ggtitle</span>(<span class="st">'age group by director'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> age_gaps[<span class="fu">which</span>(age_gaps<span class="sc">$</span>director <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Woody Allen'</span>,<span class="st">'Martin Scorsese'</span>,<span class="st">'Steven Spielberg'</span>)),]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">gather</span>(df,<span class="at">key=</span><span class="st">'actorgroup'</span>,<span class="at">value=</span><span class="st">'age'</span>,<span class="dv">12</span><span class="sc">:</span><span class="dv">13</span>) </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">actorgroup=</span><span class="fu">if_else</span>(actorgroup<span class="sc">==</span><span class="st">'actor_1_age'</span>,<span class="st">'older'</span>,<span class="st">'younger'</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>director, <span class="at">y=</span>age,<span class="at">fill=</span>actorgroup)) <span class="sc">+</span> </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()<span class="sc">+</span><span class="fu">ggtitle</span>(<span class="st">'age group by director'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="tidytuesday_exercise_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Here we can see that, director Woody Allen like to choose aged older actor. From here, looks like age difference is biggest. So we would like to have a look at the difference.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>director, <span class="at">y=</span>age_difference)) <span class="sc">+</span> </span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>director, <span class="at">y=</span>age_difference)) <span class="sc">+</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="tidytuesday_exercise_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Hard to say if the age_difference are different among these directors. So, I want to do some stitistical test.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(df,<span class="at">x =</span> <span class="st">'director'</span>, <span class="at">y =</span> <span class="st">'age_difference'</span>,</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"jco"</span>,<span class="at">exact=</span><span class="cn">FALSE</span>)<span class="sc">+</span> </span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_compare_means</span>()<span class="sc">+</span><span class="fu">ggtitle</span>(<span class="st">'age difference'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(df,<span class="at">x =</span> <span class="st">'director'</span>, <span class="at">y =</span> <span class="st">'age_difference'</span>,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"jco"</span>,<span class="at">exact=</span><span class="cn">FALSE</span>)<span class="sc">+</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_compare_means</span>()<span class="sc">+</span><span class="fu">ggtitle</span>(<span class="st">'age difference'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="tidytuesday_exercise_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>So, they are not all same. Then I can try tukeytest.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(<span class="fu">aov</span>(<span class="fu">lm</span>(df<span class="sc">$</span>age_difference<span class="sc">~</span>df<span class="sc">$</span>director)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(<span class="fu">aov</span>(<span class="fu">lm</span>(df<span class="sc">$</span>age_difference<span class="sc">~</span>df<span class="sc">$</span>director)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Tukey multiple comparisons of means
     95% family-wise confidence level
@@ -340,8 +362,8 @@ Woody Allen-Steven Spielberg     6.650000 -3.32384339 16.62384 0.2479557</code><
 </div>
 <p>Suggestion for script writer. Woody Allen prefer large age_difference than Martin Scorsese. So, if you have a script with large age_diffenence, go to talk to Woody Allen rather than Martin Scorsese. Woody Allen will have a higher chance to accept your script.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(df1,actorgroup<span class="sc">==</span><span class="st">'actor_1_age'</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">TukeyHSD</span>(<span class="fu">aov</span>(<span class="fu">lm</span>(df2<span class="sc">$</span>age<span class="sc">~</span>df2<span class="sc">$</span>director)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(df1,actorgroup<span class="sc">==</span><span class="st">'actor_1_age'</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">TukeyHSD</span>(<span class="fu">aov</span>(<span class="fu">lm</span>(df2<span class="sc">$</span>age<span class="sc">~</span>df2<span class="sc">$</span>director)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Tukey multiple comparisons of means
     95% family-wise confidence level
@@ -354,8 +376,8 @@ Steven Spielberg-Martin Scorsese 1.084615 -11.009175 13.17841 0.9740921
 Woody Allen-Martin Scorsese      8.784615  -1.458699 19.02793 0.1053042
 Woody Allen-Steven Spielberg     7.700000  -3.435656 18.83566 0.2241361</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(df1,actorgroup<span class="sc">==</span><span class="st">'actor_2_age'</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(<span class="fu">aov</span>(<span class="fu">lm</span>(df3<span class="sc">$</span>age<span class="sc">~</span>df3<span class="sc">$</span>director)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(df1,actorgroup<span class="sc">==</span><span class="st">'actor_2_age'</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(<span class="fu">aov</span>(<span class="fu">lm</span>(df3<span class="sc">$</span>age<span class="sc">~</span>df3<span class="sc">$</span>director)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Tukey multiple comparisons of means
     95% family-wise confidence level
