@@ -26,6 +26,7 @@ website:
             href: ./fluanalysis/code/wrangling.html
           - text: "Fitting"
             href: ./fluanalysis/code/fitting.html
+
     right:
       - icon: github 
         href: URL-TO-THIS-REPOSITORY-HERE        
