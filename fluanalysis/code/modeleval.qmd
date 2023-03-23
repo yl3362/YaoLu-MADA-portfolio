@@ -5,34 +5,50 @@ editor: visual
 ---
 
 # Setup
+
 ```{r, include=FALSE, cache=FALSE}
 knitr::read_chunk('modeleval.R')
 ```
 
 Load package
+
 ```{r,package}
 ```
+
 Load data
+
 ```{r,data}
 ```
+
 Fit the model use all predictor
+
 ```{r,fit}
 ```
+
 Predict
+
 ```{r,predict}
 ```
 
 Fit the model only use main predictor
+
 ```{r,fit2}
 ```
 
 Predict in alternative model
+
 ```{r,predict2}
 ```
 
 # Summary
-In the model using all predictors, area under the curve is 0.787 for train_data. It's a fine model.
-For test_data, that's 0.724. It's fine as well.
 
-In the model using the main predictor, area under the curve is 0.519 for train_data. So, this isn't a good model.
-For test_data, that's 0.466. This indicate that isn't a good model.
+In the model using all predictors, area under the curve is 0.787 for train_data. It's a fine model. For test_data, that's 0.724. It's fine as well.
+
+In the model using the main predictor, area under the curve is 0.519 for train_data. So, this isn't a good model. For test_data, that's 0.466. This indicate that isn't a good model.
+
+
+# This section added by NICOLE LUISI 
+
+Note: Following setup started by Yao, the code for part 2 was added to the `modeleval.R` script in the same folder that is called at the beginning of this Quarto file. 
+
+Summary: Model with all predictors is better. The RMSE is similar here, but the model with all of the predictors has a higher r-squared. 
