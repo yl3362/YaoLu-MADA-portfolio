@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>My Data Analysis Portfolio - machinelearning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">My Data Analysis Portfolio</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../.././aboutme.html">
+ <span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../.././coding_exercise.html">
+ <span class="dropdown-text">R Coding Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../.././visualization_exercise.html">
+ <span class="dropdown-text">Visualization Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../.././tidytuesday_exercise.html">
+ <span class="dropdown-text">Tidy Tuesday Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../.././dataanalysis_exercise.html">
+ <span class="dropdown-text">Data Analysis Exercise</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-flu-analysis" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Flu Analysis</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-flu-analysis">    
+        <li>
+    <a class="dropdown-item" href="../.././fluanalysis/code/exploration.html">
+ <span class="dropdown-text">Exploration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../.././fluanalysis/code/wrangling.html">
+ <span class="dropdown-text">Wrangling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../.././fluanalysis/code/fitting.html">
+ <span class="dropdown-text">Fitting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../.././fluanalysis/code/modeleval.html">
+ <span class="dropdown-text">Model Evaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../.././fluanalysis/code/machinelearning.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../URL-TO-THIS-REPOSITORY-HERE"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">machinelearning</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="setup" class="level1">
+<h1>Setup</h1>
+<p>#Load package</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)<span class="co"># for the tune package, along with the rest of tidymodels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.0.0 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ broom        1.0.4     ✔ recipes      1.0.5
+✔ dials        1.1.0     ✔ rsample      1.1.1
+✔ dplyr        1.1.1     ✔ tibble       3.2.1
+✔ ggplot2      3.4.1     ✔ tidyr        1.3.0
+✔ infer        1.0.4     ✔ tune         1.0.1
+✔ modeldata    1.1.0     ✔ workflows    1.1.3
+✔ parsnip      1.0.4     ✔ workflowsets 1.0.0
+✔ purrr        1.0.1     ✔ yardstick    1.1.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
+✖ purrr::discard() masks scales::discard()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+✖ recipes::step()  masks stats::step()
+• Use suppressPackageStartupMessages() to eliminate package startup messages</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at E:/uga course/bios8060e/res1/yaolu-MADA-portfolio</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.0     ✔ readr     2.1.4
+✔ lubridate 1.9.2     ✔ stringr   1.5.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ readr::col_factor() masks scales::col_factor()
+✖ purrr::discard()    masks scales::discard()
+✖ dplyr::filter()     masks stats::filter()
+✖ stringr::fixed()    masks recipes::fixed()
+✖ dplyr::lag()        masks stats::lag()
+✖ readr::spec()       masks yardstick::spec()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart.plot)  <span class="co"># for visualizing a decision tree</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: rpart
+
+Attaching package: 'rpart'
+
+The following object is masked from 'package:dials':
+
+    prune</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vip) <span class="co"># for variable importance plots</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'vip'
+
+The following object is masked from 'package:utils':
+
+    vi</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix
+
+Attaching package: 'Matrix'
+
+The following objects are masked from 'package:tidyr':
+
+    expand, pack, unpack
+
+Loaded glmnet 4.1-7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ranger)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>#Load data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">'fluanalysis'</span>,<span class="st">'data'</span>,<span class="st">'processed_data.rds'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>#setup</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>d1<span class="sc">$</span>Weakness <span class="ot">&lt;-</span> <span class="fu">factor</span>(d1<span class="sc">$</span>Weakness, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"None"</span>,<span class="st">"Mild"</span>,<span class="st">"Moderate"</span>,<span class="st">"Severe"</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>d1<span class="sc">$</span>CoughIntensity <span class="ot">&lt;-</span> <span class="fu">factor</span>(d1<span class="sc">$</span>CoughIntensity, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"None"</span>,<span class="st">"Mild"</span>,<span class="st">"Moderate"</span>,<span class="st">"Severe"</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>d1<span class="sc">$</span>Myalgia <span class="ot">&lt;-</span> <span class="fu">factor</span>(d1<span class="sc">$</span>Myalgia, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"None"</span>,<span class="st">"Mild"</span>,<span class="st">"Moderate"</span>,<span class="st">"Severe"</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Put 0.7 of the data into the training set </span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>data_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(d1, <span class="at">prop =</span> <span class="fl">0.7</span>,<span class="at">strata =</span> BodyTemp)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data frames for the two sets:</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> <span class="fu">training</span>(data_split)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>test_data  <span class="ot">&lt;-</span> <span class="fu">testing</span>(data_split)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Create 5-fold cross-validation, 5 times repeated</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>CV5 <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(train_data, <span class="at">v =</span> <span class="dv">5</span>, <span class="at">repeats =</span> <span class="dv">5</span>, <span class="at">strata =</span> BodyTemp)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a recipe</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="co"># after checking is.order(), rebuild 3 variables.</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>rec1 <span class="ot">&lt;-</span> <span class="fu">recipe</span>(BodyTemp<span class="sc">~</span>.,<span class="at">data=</span>train_data) <span class="sc">%&gt;%</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>(),<span class="sc">-</span>Weakness,<span class="sc">-</span>CoughIntensity, <span class="sc">-</span>Myalgia) <span class="sc">%&gt;%</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="fu">step_ordinalscore</span>(Weakness, CoughIntensity, Myalgia)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>#Null performance</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Null model performance</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>null_setup <span class="ot">&lt;-</span> <span class="fu">null_model</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"parsnip"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"regression"</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>null_wf_train <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(rec1)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>null_model_train <span class="ot">&lt;-</span> <span class="fu">fit_resamples</span>(null_wf_train <span class="sc">%&gt;%</span> </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">add_model</span>(null_setup), CV5,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">metrics =</span> <span class="fu">metric_set</span>(rmse))</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>null_model_train <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>() <span class="co"># 1.21</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 6
+  .metric .estimator  mean     n std_err .config             
+  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               
+1 rmse    standard    1.21    25  0.0177 Preprocessor1_Model1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>null_rmse <span class="ot">&lt;-</span> null_model_train <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>()</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>result_location1 <span class="ot">=</span> <span class="fu">here</span>(<span class="st">"fluanalysis"</span>,<span class="st">"results"</span>, <span class="st">"null_rmse.rds"</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(null_rmse, <span class="at">file =</span> result_location1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>#Model tuning and fitting ##Specifiation</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Specification</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Decision tree</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>tune_spec <span class="ot">&lt;-</span> </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">decision_tree</span>(</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">cost_complexity =</span> <span class="fu">tune</span>(),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">tree_depth =</span> <span class="fu">tune</span>()</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"rpart"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"regression"</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># LASSO</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>glm_spec <span class="ot">&lt;-</span> </span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">linear_reg</span>(<span class="at">penalty =</span> <span class="fu">tune</span>(), <span class="at">mixture =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glmnet"</span>)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Random forest</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>()</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>cores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>rf_spec <span class="ot">&lt;-</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rand_forest</span>(<span class="at">mtry =</span> <span class="fu">tune</span>(), <span class="at">min_n =</span> <span class="fu">tune</span>(), <span class="at">trees =</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"ranger"</span>, <span class="at">num.threads =</span> cores) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"regression"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>##Work flow</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Work flow</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Decision tree</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>tree_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(rec1) <span class="sc">%&gt;%</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(tune_spec)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#LASSO</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>glm_wf<span class="ot">=</span><span class="fu">workflow</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(rec1)<span class="sc">%&gt;%</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(glm_spec)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Random forest</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>rf_wf<span class="ot">=</span><span class="fu">workflow</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(rec1)<span class="sc">%&gt;%</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(rf_spec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>##Grid</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Decision tree</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  tree_grid <span class="ot">&lt;-</span> <span class="fu">grid_regular</span>(<span class="fu">cost_complexity</span>(),</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">tree_depth</span>(),</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">levels =</span> <span class="dv">5</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  tree_grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 25 × 2
+   cost_complexity tree_depth
+             &lt;dbl&gt;      &lt;int&gt;
+ 1    0.0000000001          1
+ 2    0.0000000178          1
+ 3    0.00000316            1
+ 4    0.000562              1
+ 5    0.1                   1
+ 6    0.0000000001          4
+ 7    0.0000000178          4
+ 8    0.00000316            4
+ 9    0.000562              4
+10    0.1                   4
+# ℹ 15 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LASSO</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  glm_grid <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">penalty =</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">30</span>))</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  glm_grid <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="sc">-</span><span class="dv">5</span>) <span class="co"># lowest penalty values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by penalty</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 1
+   penalty
+     &lt;dbl&gt;
+1 0.0001  
+2 0.000127
+3 0.000161
+4 0.000204
+5 0.000259</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>  glm_grid <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">5</span>)  <span class="co"># highest penalty values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by penalty</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 1
+  penalty
+    &lt;dbl&gt;
+1  0.0386
+2  0.0489
+3  0.0621
+4  0.0788
+5  0.1   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Random forest</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_parameter_set_dials</span>(rf_spec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Collection of 2 parameters for tuning
+
+ identifier  type    object
+       mtry  mtry nparam[?]
+      min_n min_n nparam[+]
+
+Model parameters needing finalization:
+   # Randomly Selected Predictors ('mtry')
+
+See `?dials::finalize` or `?dials::update.parameters` for more information.</code></pre>
+</div>
+</div>
+<p>##cv</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Decision tree</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>tree_res <span class="ot">&lt;-</span> </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  tree_wf <span class="sc">%&gt;%</span> </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tune_grid</span>(</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamples =</span> CV5,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">grid =</span> tree_grid</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold1, Repeat1: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold2, Repeat1: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold3, Repeat1: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold4, Repeat1: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold5, Repeat1: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold1, Repeat2: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold2, Repeat2: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold3, Repeat2: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold4, Repeat2: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold5, Repeat2: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold1, Repeat3: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold2, Repeat3: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold3, Repeat3: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold4, Repeat3: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold5, Repeat3: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold1, Repeat4: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold2, Repeat4: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold3, Repeat4: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold4, Repeat4: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold5, Repeat4: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold1, Repeat5: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold2, Repeat5: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold3, Repeat5: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold4, Repeat5: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Fold5, Repeat5: internal:
+  There was 1 warning in `dplyr::summarise()`.
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 1`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 4`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 8`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 11`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...
+  ℹ In argument: `.estimate = metric_fn(truth = BodyTemp, estimate = .pr...
+    = na_rm)`.
+  ℹ In group 1: `cost_complexity = 0.1`, `tree_depth = 15`.
+  Caused by warning:
+  ! A correlation computation is required, but `estimate` is constant an...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>tree_res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Tuning results
+# 5-fold cross-validation repeated 5 times using stratification 
+# A tibble: 25 × 5
+   splits            id      id2   .metrics          .notes          
+   &lt;list&gt;            &lt;chr&gt;   &lt;chr&gt; &lt;list&gt;            &lt;list&gt;          
+ 1 &lt;split [405/103]&gt; Repeat1 Fold1 &lt;tibble [50 × 6]&gt; &lt;tibble [1 × 3]&gt;
+ 2 &lt;split [405/103]&gt; Repeat1 Fold2 &lt;tibble [50 × 6]&gt; &lt;tibble [1 × 3]&gt;
+ 3 &lt;split [406/102]&gt; Repeat1 Fold3 &lt;tibble [50 × 6]&gt; &lt;tibble [1 × 3]&gt;
+ 4 &lt;split [408/100]&gt; Repeat1 Fold4 &lt;tibble [50 × 6]&gt; &lt;tibble [1 × 3]&gt;
+ 5 &lt;split [408/100]&gt; Repeat1 Fold5 &lt;tibble [50 × 6]&gt; &lt;tibble [1 × 3]&gt;
+ 6 &lt;split [405/103]&gt; Repeat2 Fold1 &lt;tibble [50 × 6]&gt; &lt;tibble [1 × 3]&gt;
+ 7 &lt;split [405/103]&gt; Repeat2 Fold2 &lt;tibble [50 × 6]&gt; &lt;tibble [1 × 3]&gt;
+ 8 &lt;split [406/102]&gt; Repeat2 Fold3 &lt;tibble [50 × 6]&gt; &lt;tibble [1 × 3]&gt;
+ 9 &lt;split [408/100]&gt; Repeat2 Fold4 &lt;tibble [50 × 6]&gt; &lt;tibble [1 × 3]&gt;
+10 &lt;split [408/100]&gt; Repeat2 Fold5 &lt;tibble [50 × 6]&gt; &lt;tibble [1 × 3]&gt;
+# ℹ 15 more rows
+
+There were issues with some computations:
+
+  - Warning(s) x25: There was 1 warning in `dplyr::summarise()`. ℹ In argument: `.est...
+
+Run `show_notes(.Last.tune.result)` for more information.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LASSO</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>glm_res <span class="ot">&lt;-</span>glm_wf<span class="sc">%&gt;%</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tune_grid</span>(</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamples=</span>CV5,</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">grid=</span>glm_grid,</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">control=</span><span class="fu">control_grid</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics=</span><span class="fu">metric_set</span>(rmse)</span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>glm_res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Tuning results
+# 5-fold cross-validation repeated 5 times using stratification 
+# A tibble: 25 × 6
+   splits            id      id2   .metrics          .notes   .predictions
+   &lt;list&gt;            &lt;chr&gt;   &lt;chr&gt; &lt;list&gt;            &lt;list&gt;   &lt;list&gt;      
+ 1 &lt;split [405/103]&gt; Repeat1 Fold1 &lt;tibble [30 × 5]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 2 &lt;split [405/103]&gt; Repeat1 Fold2 &lt;tibble [30 × 5]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 3 &lt;split [406/102]&gt; Repeat1 Fold3 &lt;tibble [30 × 5]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 4 &lt;split [408/100]&gt; Repeat1 Fold4 &lt;tibble [30 × 5]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 5 &lt;split [408/100]&gt; Repeat1 Fold5 &lt;tibble [30 × 5]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 6 &lt;split [405/103]&gt; Repeat2 Fold1 &lt;tibble [30 × 5]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 7 &lt;split [405/103]&gt; Repeat2 Fold2 &lt;tibble [30 × 5]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 8 &lt;split [406/102]&gt; Repeat2 Fold3 &lt;tibble [30 × 5]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 9 &lt;split [408/100]&gt; Repeat2 Fold4 &lt;tibble [30 × 5]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+10 &lt;split [408/100]&gt; Repeat2 Fold5 &lt;tibble [30 × 5]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+# ℹ 15 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Random forest</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>rf_res <span class="ot">&lt;-</span> rf_wf <span class="sc">%&gt;%</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tune_grid</span>(</span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">resamples=</span>CV5,</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">grid=</span><span class="dv">25</span>,</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">control=</span><span class="fu">control_grid</span>(<span class="at">save_pred=</span><span class="cn">TRUE</span>),</span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">metrics =</span> <span class="fu">metric_set</span>(rmse))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>i Creating pre-processing data to finalize unknown parameter: mtry</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>rf_res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Tuning results
+# 5-fold cross-validation repeated 5 times using stratification 
+# A tibble: 25 × 6
+   splits            id      id2   .metrics          .notes   .predictions
+   &lt;list&gt;            &lt;chr&gt;   &lt;chr&gt; &lt;list&gt;            &lt;list&gt;   &lt;list&gt;      
+ 1 &lt;split [405/103]&gt; Repeat1 Fold1 &lt;tibble [25 × 6]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 2 &lt;split [405/103]&gt; Repeat1 Fold2 &lt;tibble [25 × 6]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 3 &lt;split [406/102]&gt; Repeat1 Fold3 &lt;tibble [25 × 6]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 4 &lt;split [408/100]&gt; Repeat1 Fold4 &lt;tibble [25 × 6]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 5 &lt;split [408/100]&gt; Repeat1 Fold5 &lt;tibble [25 × 6]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 6 &lt;split [405/103]&gt; Repeat2 Fold1 &lt;tibble [25 × 6]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 7 &lt;split [405/103]&gt; Repeat2 Fold2 &lt;tibble [25 × 6]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 8 &lt;split [406/102]&gt; Repeat2 Fold3 &lt;tibble [25 × 6]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+ 9 &lt;split [408/100]&gt; Repeat2 Fold4 &lt;tibble [25 × 6]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+10 &lt;split [408/100]&gt; Repeat2 Fold5 &lt;tibble [25 × 6]&gt; &lt;tibble&gt; &lt;tibble&gt;    
+# ℹ 15 more rows</code></pre>
+</div>
+</div>
+<p>#Evaluation ##Decision tree</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Decision tree</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the result</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>tree_res <span class="sc">%&gt;%</span> <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evaluation1-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co">#choose best tree</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>best_tree <span class="ot">&lt;-</span> tree_res <span class="sc">%&gt;%</span></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select_best</span>(<span class="st">"rmse"</span>)</span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="co">#finalizing the model</span></span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>final_wf <span class="ot">&lt;-</span> </span>
+<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>  tree_wf <span class="sc">%&gt;%</span> </span>
+<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">finalize_workflow</span>(best_tree)</span>
+<span id="cb71-8"><a href="#cb71-8" aria-hidden="true" tabindex="-1"></a>final_wf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>══ Workflow ════════════════════════════════════════════════════════════════════
+Preprocessor: Recipe
+Model: decision_tree()
+
+── Preprocessor ────────────────────────────────────────────────────────────────
+2 Recipe Steps
+
+• step_dummy()
+• step_ordinalscore()
+
+── Model ───────────────────────────────────────────────────────────────────────
+Decision Tree Model Specification (regression)
+
+Main Arguments:
+  cost_complexity = 1e-10
+  tree_depth = 1
+
+Computational engine: rpart </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fit by train data</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>final_fit <span class="ot">&lt;-</span> </span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>  final_wf <span class="sc">%&gt;%</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(train_data) </span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="co">#predict value</span></span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>tree_predict <span class="ot">&lt;-</span> final_fit <span class="sc">%&gt;%</span></span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict</span>(train_data)</span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a><span class="co">#actual vs predict</span></span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>tree_plot <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(train_data<span class="sc">$</span>BodyTemp,tree_predict<span class="sc">$</span><span class="st">`</span><span class="at">.pred</span><span class="st">`</span>))</span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(tree_plot)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'actual'</span>,<span class="st">'predict'</span>)</span>
+<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a>tree_plot1 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(tree_plot,<span class="fu">colnames</span>(tree_plot)) </span>
+<span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tree_plot,<span class="st">'actual'</span>,<span class="st">'predict'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evaluation1-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(tree_plot,<span class="st">'actual'</span>,<span class="st">'predict'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evaluation1-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co">#residual plot</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>residual_tree <span class="ot">&lt;-</span> train_data<span class="sc">$</span>BodyTemp<span class="sc">-</span>tree_predict</span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tree_predict<span class="sc">$</span>.pred,residual_tree<span class="sc">$</span>.pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evaluation1-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">as.factor</span>(tree_predict<span class="sc">$</span>.pred),residual_tree<span class="sc">$</span>.pred,<span class="at">names=</span><span class="fu">c</span>(<span class="st">'98.69'</span>,<span class="st">'99.23'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evaluation1-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co">#levels(as.factor(tree_predict$.pred))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>##LASSO</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co">#LASSO</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the result</span></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>glm_res<span class="sc">%&gt;%</span></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evalasso-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the best</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>glm_res<span class="sc">%&gt;%</span></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_best</span>(<span class="st">"rmse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+  penalty .metric .estimator  mean     n std_err .config              
+    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                
+1  0.0489 rmse    standard    1.15    25  0.0171 Preprocessor1_Model27
+2  0.0621 rmse    standard    1.15    25  0.0170 Preprocessor1_Model28
+3  0.0386 rmse    standard    1.15    25  0.0171 Preprocessor1_Model26
+4  0.0788 rmse    standard    1.15    25  0.0171 Preprocessor1_Model29
+5  0.0304 rmse    standard    1.15    25  0.0172 Preprocessor1_Model25</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose the best</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>glm_best <span class="ot">&lt;-</span> </span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>  glm_res <span class="sc">%&gt;%</span> </span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select_best</span>(<span class="at">metric =</span> <span class="st">"rmse"</span>)</span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>glm_best</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  penalty .config              
+    &lt;dbl&gt; &lt;chr&gt;                
+1  0.0489 Preprocessor1_Model27</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finalize the workflow</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>glm_final <span class="ot">&lt;-</span> </span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>  glm_wf<span class="sc">%&gt;%</span></span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">finalize_workflow</span>(glm_best)</span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="co">#fit by train data</span></span>
+<span id="cb83-6"><a href="#cb83-6" aria-hidden="true" tabindex="-1"></a>glm_fit <span class="ot">&lt;-</span> </span>
+<span id="cb83-7"><a href="#cb83-7" aria-hidden="true" tabindex="-1"></a>  glm_final <span class="sc">%&gt;%</span></span>
+<span id="cb83-8"><a href="#cb83-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(train_data) </span>
+<span id="cb83-9"><a href="#cb83-9" aria-hidden="true" tabindex="-1"></a><span class="co">#predict value</span></span>
+<span id="cb83-10"><a href="#cb83-10" aria-hidden="true" tabindex="-1"></a>glm_predict <span class="ot">&lt;-</span> glm_fit<span class="sc">%&gt;%</span></span>
+<span id="cb83-11"><a href="#cb83-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict</span>(train_data)</span>
+<span id="cb83-12"><a href="#cb83-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-13"><a href="#cb83-13" aria-hidden="true" tabindex="-1"></a><span class="co">#actual vs predict</span></span>
+<span id="cb83-14"><a href="#cb83-14" aria-hidden="true" tabindex="-1"></a>glm_plot <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(train_data<span class="sc">$</span>BodyTemp,glm_predict<span class="sc">$</span><span class="st">`</span><span class="at">.pred</span><span class="st">`</span>))</span>
+<span id="cb83-15"><a href="#cb83-15" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(glm_plot)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'actual'</span>,<span class="st">'predict'</span>)</span>
+<span id="cb83-16"><a href="#cb83-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-17"><a href="#cb83-17" aria-hidden="true" tabindex="-1"></a>glm_plot1 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(glm_plot,<span class="fu">colnames</span>(glm_plot)) </span>
+<span id="cb83-18"><a href="#cb83-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(glm_plot1,<span class="at">x=</span><span class="st">'name'</span>,<span class="at">y=</span><span class="st">'value'</span>,<span class="at">add =</span> <span class="st">"jitter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evalasso-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(glm_plot,<span class="st">'actual'</span>,<span class="st">'predict'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evalasso-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co">#residual plot</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>residual_glm <span class="ot">&lt;-</span> train_data<span class="sc">$</span>BodyTemp<span class="sc">-</span>glm_predict</span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(glm_predict<span class="sc">$</span>.pred,residual_glm<span class="sc">$</span>.pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evalasso-4.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>##Random forest</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co">#random forest</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the result</span></span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>rf_res<span class="sc">%&gt;%</span></span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evarf-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the best</span></span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>rf_res<span class="sc">%&gt;%</span></span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_best</span>(<span class="st">"rmse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 8
+   mtry min_n .metric .estimator  mean     n std_err .config              
+  &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                
+1     5    38 rmse    standard    1.16    25  0.0167 Preprocessor1_Model01
+2     4    34 rmse    standard    1.16    25  0.0168 Preprocessor1_Model25
+3     2     2 rmse    standard    1.16    25  0.0171 Preprocessor1_Model21
+4     2    25 rmse    standard    1.16    25  0.0171 Preprocessor1_Model06
+5     8    39 rmse    standard    1.16    25  0.0169 Preprocessor1_Model05</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose the best</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>rf_best <span class="ot">&lt;-</span> </span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>  rf_res <span class="sc">%&gt;%</span> </span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select_best</span>(<span class="at">metric =</span> <span class="st">"rmse"</span>)</span>
+<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>rf_best</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+   mtry min_n .config              
+  &lt;int&gt; &lt;int&gt; &lt;chr&gt;                
+1     5    38 Preprocessor1_Model01</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finalize the workflow</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>rf_final <span class="ot">&lt;-</span> </span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a> rf_wf<span class="sc">%&gt;%</span></span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">finalize_workflow</span>(rf_best)</span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a><span class="co">#fit by train data</span></span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>rf_fit <span class="ot">&lt;-</span> </span>
+<span id="cb91-7"><a href="#cb91-7" aria-hidden="true" tabindex="-1"></a>  rf_final <span class="sc">%&gt;%</span></span>
+<span id="cb91-8"><a href="#cb91-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(train_data) </span>
+<span id="cb91-9"><a href="#cb91-9" aria-hidden="true" tabindex="-1"></a><span class="co">#predict value</span></span>
+<span id="cb91-10"><a href="#cb91-10" aria-hidden="true" tabindex="-1"></a>rf_predict <span class="ot">&lt;-</span> rf_fit<span class="sc">%&gt;%</span></span>
+<span id="cb91-11"><a href="#cb91-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict</span>(train_data)</span>
+<span id="cb91-12"><a href="#cb91-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-13"><a href="#cb91-13" aria-hidden="true" tabindex="-1"></a><span class="co">#actual vs predict</span></span>
+<span id="cb91-14"><a href="#cb91-14" aria-hidden="true" tabindex="-1"></a>rf_plot <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(train_data<span class="sc">$</span>BodyTemp,rf_predict<span class="sc">$</span><span class="st">`</span><span class="at">.pred</span><span class="st">`</span>))</span>
+<span id="cb91-15"><a href="#cb91-15" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(rf_plot)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'actual'</span>,<span class="st">'predict'</span>)</span>
+<span id="cb91-16"><a href="#cb91-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-17"><a href="#cb91-17" aria-hidden="true" tabindex="-1"></a>rf_plot1 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(rf_plot,<span class="fu">colnames</span>(rf_plot)) </span>
+<span id="cb91-18"><a href="#cb91-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(rf_plot1,<span class="at">x=</span><span class="st">'name'</span>,<span class="at">y=</span><span class="st">'value'</span>,<span class="at">add =</span> <span class="st">"jitter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evarf-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rf_plot,<span class="st">'actual'</span>,<span class="st">'predict'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evarf-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co">#residual plot</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>residual_rf <span class="ot">&lt;-</span> train_data<span class="sc">$</span>BodyTemp<span class="sc">-</span>rf_predict</span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rf_predict<span class="sc">$</span>.pred,residual_rf<span class="sc">$</span>.pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/evarf-4.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>#Null model compare</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compare model performance</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>tree_rmse <span class="ot">&lt;-</span> tree_res<span class="sc">%&gt;%</span></span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_best</span>(<span class="st">"rmse"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>)</span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a>glm_rmse <span class="ot">&lt;-</span> glm_res<span class="sc">%&gt;%</span></span>
+<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_best</span>(<span class="st">"rmse"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb94-8"><a href="#cb94-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>)</span>
+<span id="cb94-9"><a href="#cb94-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-10"><a href="#cb94-10" aria-hidden="true" tabindex="-1"></a>rf_rmse <span class="ot">&lt;-</span> rf_res<span class="sc">%&gt;%</span></span>
+<span id="cb94-11"><a href="#cb94-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_best</span>(<span class="st">"rmse"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb94-12"><a href="#cb94-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>)</span>
+<span id="cb94-13"><a href="#cb94-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-14"><a href="#cb94-14" aria-hidden="true" tabindex="-1"></a>null_rmse <span class="ot">&lt;-</span> null_model_train <span class="sc">%&gt;%</span> </span>
+<span id="cb94-15"><a href="#cb94-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_best</span>(<span class="st">"rmse"</span>)</span>
+<span id="cb94-16"><a href="#cb94-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-17"><a href="#cb94-17" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'null'</span>,<span class="st">'tree'</span>,<span class="st">'lasso'</span>,<span class="st">'random forest'</span>)</span>
+<span id="cb94-18"><a href="#cb94-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-19"><a href="#cb94-19" aria-hidden="true" tabindex="-1"></a>comparision <span class="ot">&lt;-</span> <span class="fu">rbind</span>(null_rmse[<span class="dv">1</span>,],tree_rmse[<span class="dv">1</span>,],glm_rmse[<span class="dv">1</span>,],rf_rmse[<span class="dv">1</span>,])</span>
+<span id="cb94-20"><a href="#cb94-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-21"><a href="#cb94-21" aria-hidden="true" tabindex="-1"></a>comparision1 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(comparision,model)</span>
+<span id="cb94-22"><a href="#cb94-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-23"><a href="#cb94-23" aria-hidden="true" tabindex="-1"></a>comparision1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  .metric .estimator     mean  n    std_err               .config         model
+1    rmse   standard 1.206661 25 0.01767230  Preprocessor1_Model1          null
+2    rmse   standard 1.189406 25 0.01806070 Preprocessor1_Model01          tree
+3    rmse   standard 1.151395 25 0.01706500 Preprocessor1_Model27         lasso
+4    rmse   standard 1.157735 25 0.01674963 Preprocessor1_Model01 random forest</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lasso have lowest rmse</span></span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(train_data)</span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>upper_chisq <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.025</span>, n, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>lower_chisq <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.025</span>, n, <span class="at">lower.tail=</span><span class="cn">TRUE</span>)</span>
+<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a><span class="co">#95CI for each model</span></span>
+<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a>comparision1<span class="sc">$</span>lower <span class="ot">&lt;-</span> comparision1<span class="sc">$</span>mean<span class="sc">*</span><span class="fu">sqrt</span>(n<span class="sc">/</span>upper_chisq)</span>
+<span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a>comparision1<span class="sc">$</span>upper <span class="ot">&lt;-</span> comparision1<span class="sc">$</span>mean<span class="sc">*</span><span class="fu">sqrt</span>(n<span class="sc">/</span>lower_chisq)</span>
+<span id="cb96-11"><a href="#cb96-11" aria-hidden="true" tabindex="-1"></a>comparision1<span class="sc">$</span><span class="st">`</span><span class="at">95%CI</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">'('</span>,comparision1<span class="sc">$</span>lower,<span class="st">','</span>,comparision1<span class="sc">$</span>upper,<span class="st">')'</span>)</span>
+<span id="cb96-12"><a href="#cb96-12" aria-hidden="true" tabindex="-1"></a>comparision1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  .metric .estimator     mean  n    std_err               .config         model
+1    rmse   standard 1.206661 25 0.01767230  Preprocessor1_Model1          null
+2    rmse   standard 1.189406 25 0.01806070 Preprocessor1_Model01          tree
+3    rmse   standard 1.151395 25 0.01706500 Preprocessor1_Model27         lasso
+4    rmse   standard 1.157735 25 0.01674963 Preprocessor1_Model01 random forest
+     lower    upper                                   95%CI
+1 1.136810 1.285727 ( 1.13681020647467 , 1.28572703409415 )
+2 1.120554 1.267342 ( 1.12055440689772 , 1.26734180069471 )
+3 1.084744 1.226840 ( 1.08474387228892 , 1.22684025330389 )
+4 1.090716 1.233595  ( 1.0907162116404 , 1.23359494121683 )</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co">#so, 95% CI of rmse for LASSO looks the best. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>LASSO has the best 95%CI of RMSE, so here I choose LASSO</p>
+<p>#Final evaluation</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co">#final evaluation</span></span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>glm_last_fit <span class="ot">&lt;-</span> glm_final<span class="sc">%&gt;%</span></span>
+<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">last_fit</span>(data_split)</span>
+<span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a>glm_last_fit<span class="sc">%&gt;%</span></span>
+<span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  .metric .estimator .estimate .config             
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
+1 rmse    standard      1.16   Preprocessor1_Model1
+2 rsq     standard      0.0278 Preprocessor1_Model1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>glm_predict_final <span class="ot">&lt;-</span> glm_last_fit<span class="sc">%&gt;%</span></span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect_predictions</span>()</span>
+<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>glm_last_fit<span class="sc">%&gt;%</span></span>
+<span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_fit_engine</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb101-5"><a href="#cb101-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/finaleval-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co">#performance RMSE=1.16 RSQ=0.0312</span></span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="co">#actual vs predict</span></span>
+<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(glm_predict_final)[<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>)] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'actual'</span>,<span class="st">'predict'</span>)</span>
+<span id="cb102-6"><a href="#cb102-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-7"><a href="#cb102-7" aria-hidden="true" tabindex="-1"></a>glm_final_plot1 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(glm_predict_final,<span class="fu">c</span>(<span class="st">'actual'</span>,<span class="st">'predict'</span>)) </span>
+<span id="cb102-8"><a href="#cb102-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(glm_final_plot1,<span class="at">x=</span><span class="st">'name'</span>,<span class="at">y=</span><span class="st">'value'</span>,<span class="at">add =</span> <span class="st">"jitter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/finaleval-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.numeric</span>(glm_predict_final<span class="sc">$</span>actual),<span class="fu">as.numeric</span>(glm_predict_final<span class="sc">$</span>predict))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/finaleval-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co">#residual plot</span></span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>residual_glm_final <span class="ot">&lt;-</span> glm_predict_final<span class="sc">$</span>actual<span class="sc">-</span>glm_predict_final<span class="sc">$</span>predict</span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(glm_predict_final<span class="sc">$</span>predict,residual_glm_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="machinelearning_files/figure-html/finaleval-4.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

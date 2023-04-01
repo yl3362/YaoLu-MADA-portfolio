@@ -1,0 +1,83 @@
+---
+title: "machinelearning"
+format: html
+editor: visual
+---
+
+# Setup
+
+```{r, include=FALSE, cache=FALSE}
+knitr::read_chunk('machinelearning.R')
+```
+
+#Load package
+
+```{r,package}
+```
+
+#Load data
+
+```{r,data}
+```
+
+#setup
+
+```{r,setup}
+```
+
+#Null performance
+
+```{r,Null}
+```
+
+#Model tuning and fitting ##Specifiation
+
+```{r,spec}
+```
+
+##Work flow
+
+```{r,wf}
+```
+
+##Grid
+
+```{r,grid}
+```
+
+##cv
+
+```{r,cv,warning=FALSE}
+```
+
+#Evaluation ##Decision tree
+
+```{r,evaluation1}
+```
+
+##LASSO
+
+```{r,evalasso}
+```
+
+##Random forest
+
+```{r,evarf}
+```
+
+#Null model compare
+
+```{r,nullcom}
+```
+
+LASSO has the best 95%CI of RMSE, so here I choose LASSO
+
+#Final evaluation
+
+```{r,finaleval}
+```
+
+
+
+
+

@@ -18,11 +18,17 @@ skim(t1)
 #remove columns contain these strings and remove NA
 t2 <- t1 %>%
   dplyr::select(-contains(c("Score", "Total", "FluA", "FluB", "Dxname", "Activity", "Unique.Visit"))) %>%
+  dplyr::select(-CoughYN,-WeaknessYN,-CoughYN2,-MyalgiaYN)%>%
   drop_na()
+
+
+summary(t2)
+
+t3 <- t2 %>% dplyr::select(-Vision,-Hearing)
+
+#730 obs of 26 variables
 glimpse(t2)
 #save the rds
 saveRDS(t2, file = here("fluanalysis", "data", "processed_data.rds"))
 
 ```
-
-

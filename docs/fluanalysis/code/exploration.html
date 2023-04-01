@@ -190,6 +190,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="dropdown-item" href="../.././fluanalysis/code/modeleval.html">
  <span class="dropdown-text">Model Evaluation</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../.././fluanalysis/code/machinelearning.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -234,19 +238,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="exploration">exploration</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DataExplorer)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'skimr' was built under R version 4.2.2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>here() starts at E:/uga course/bios8060e/res1/yaolu-MADA-portfolio</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#load data</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>exp1 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">here</span>(<span class="st">"fluanalysis"</span>, <span class="st">"data"</span>, <span class="st">"processed_data.rds"</span>))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(exp1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#load data</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>exp1 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">here</span>(<span class="st">"fluanalysis"</span>, <span class="st">"data"</span>, <span class="st">"processed_data.rds"</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(exp1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
 <caption>Data summary</caption>
@@ -261,7 +262,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Number of columns</td>
-<td style="text-align: left;">32</td>
+<td style="text-align: left;">28</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">_______________________</td>
@@ -273,7 +274,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="even">
 <td style="text-align: left;">factor</td>
-<td style="text-align: left;">31</td>
+<td style="text-align: left;">27</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">numeric</td>
@@ -343,14 +344,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: left;">Yes: 563, No: 167</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">CoughYN</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Yes: 655, No: 75</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Sneeze</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
@@ -358,7 +351,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">Yes: 391, No: 339</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Fatigue</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
@@ -366,7 +359,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">Yes: 666, No: 64</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">SubjectiveFever</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
@@ -374,7 +367,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">Yes: 500, No: 230</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Headache</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
@@ -382,21 +375,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">Yes: 615, No: 115</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Weakness</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: left;">Mod: 338, Mil: 223, Sev: 120, Non: 49</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">WeaknessYN</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Yes: 681, No: 49</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">CoughIntensity</td>
@@ -407,28 +392,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: left;">Mod: 357, Sev: 172, Mil: 154, Non: 47</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">CoughYN2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Yes: 683, No: 47</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Myalgia</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: left;">Mod: 325, Mil: 213, Sev: 113, Non: 79</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">MyalgiaYN</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Yes: 651, No: 79</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">RunnyNose</td>
@@ -607,70 +576,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Summary</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(exp1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Summary</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(exp1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> SwollenLymphNodes ChestCongestion ChillsSweats NasalCongestion CoughYN  
- No :418           No :323         No :130      No :167         No : 75  
- Yes:312           Yes:407         Yes:600      Yes:563         Yes:655  
+<pre><code> SwollenLymphNodes ChestCongestion ChillsSweats NasalCongestion Sneeze   
+ No :418           No :323         No :130      No :167         No :339  
+ Yes:312           Yes:407         Yes:600      Yes:563         Yes:391  
                                                                          
                                                                          
                                                                          
                                                                          
- Sneeze    Fatigue   SubjectiveFever Headache      Weakness   WeaknessYN
- No :339   No : 64   No :230         No :115   None    : 49   No : 49   
- Yes:391   Yes:666   Yes:500         Yes:615   Mild    :223   Yes:681   
-                                               Moderate:338             
-                                               Severe  :120             
-                                                                        
-                                                                        
-  CoughIntensity CoughYN2      Myalgia    MyalgiaYN RunnyNose AbPain   
- None    : 47    No : 47   None    : 79   No : 79   No :211   No :639  
- Mild    :154    Yes:683   Mild    :213   Yes:651   Yes:519   Yes: 91  
- Moderate:357              Moderate:325                                
- Severe  :172              Severe  :113                                
-                                                                       
-                                                                       
- ChestPain Diarrhea  EyePn     Insomnia  ItchyEye  Nausea    EarPn    
- No :497   No :631   No :617   No :315   No :551   No :475   No :568  
- Yes:233   Yes: 99   Yes:113   Yes:415   Yes:179   Yes:255   Yes:162  
-                                                                      
-                                                                      
-                                                                      
-                                                                      
- Hearing   Pharyngitis Breathless ToothPn   Vision    Vomit     Wheeze   
- No :700   No :119     No :436    No :565   No :711   No :652   No :510  
- Yes: 30   Yes:611     Yes:294    Yes:165   Yes: 19   Yes: 78   Yes:220  
+ Fatigue   SubjectiveFever Headache      Weakness    CoughIntensity
+ No : 64   No :230         No :115   None    : 49   None    : 47   
+ Yes:666   Yes:500         Yes:615   Mild    :223   Mild    :154   
+                                     Moderate:338   Moderate:357   
+                                     Severe  :120   Severe  :172   
+                                                                   
+                                                                   
+     Myalgia    RunnyNose AbPain    ChestPain Diarrhea  EyePn     Insomnia 
+ None    : 79   No :211   No :639   No :497   No :631   No :617   No :315  
+ Mild    :213   Yes:519   Yes: 91   Yes:233   Yes: 99   Yes:113   Yes:415  
+ Moderate:325                                                              
+ Severe  :113                                                              
+                                                                           
+                                                                           
+ ItchyEye  Nausea    EarPn     Hearing   Pharyngitis Breathless ToothPn  
+ No :551   No :475   No :568   No :700   No :119     No :436    No :565  
+ Yes:179   Yes:255   Yes:162   Yes: 30   Yes:611     Yes:294    Yes:165  
                                                                          
                                                                          
                                                                          
                                                                          
-    BodyTemp     
- Min.   : 97.20  
- 1st Qu.: 98.20  
- Median : 98.50  
- Mean   : 98.94  
- 3rd Qu.: 99.30  
- Max.   :103.10  </code></pre>
+ Vision    Vomit     Wheeze       BodyTemp     
+ No :711   No :652   No :510   Min.   : 97.20  
+ Yes: 19   Yes: 78   Yes:220   1st Qu.: 98.20  
+                               Median : 98.50  
+                               Mean   : 98.94  
+                               3rd Qu.: 99.30  
+                               Max.   :103.10  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Histogram and Density Plot</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_histogram</span>(exp1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Histogram and Density Plot</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_histogram</span>(exp1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="exploration_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_density</span>(exp1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_density</span>(exp1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="exploration_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#boxplot plot for SwollenLymphNodes</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(exp1,<span class="fu">aes</span>(<span class="at">x=</span>SwollenLymphNodes, <span class="at">y=</span>BodyTemp))<span class="sc">+</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#boxplot plot for SwollenLymphNodes</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(exp1,<span class="fu">aes</span>(<span class="at">x=</span>SwollenLymphNodes, <span class="at">y=</span>BodyTemp))<span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="exploration_files/figure-html/unnamed-chunk-1-3.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#boxplot plot for ChestCongestion</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(exp1,<span class="fu">aes</span>(<span class="at">x=</span>ChestCongestion, <span class="at">y=</span>BodyTemp))<span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#boxplot plot for ChestCongestion</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(exp1,<span class="fu">aes</span>(<span class="at">x=</span>ChestCongestion, <span class="at">y=</span>BodyTemp))<span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="exploration_files/figure-html/unnamed-chunk-1-4.png" class="img-fluid" width="672"></p>
 </div>

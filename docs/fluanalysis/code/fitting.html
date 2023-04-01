@@ -190,6 +190,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="dropdown-item" href="../.././fluanalysis/code/modeleval.html">
  <span class="dropdown-text">Model Evaluation</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../.././fluanalysis/code/machinelearning.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -237,58 +241,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stderr">
 <pre><code>here() starts at E:/uga course/bios8060e/res1/yaolu-MADA-portfolio</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'performance' was built under R version 4.2.2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">here</span>(<span class="st">"fluanalysis"</span>, <span class="st">"data"</span>, <span class="st">"processed_data.rds"</span>))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#modeling with RunnyNose</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyTemp<span class="sc">~</span>RunnyNose,<span class="at">data=</span>fit1)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#modeling with all</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyTemp<span class="sc">~</span>.,<span class="at">data=</span>fit1)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#compare lm1 and lm2</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(lm1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">here</span>(<span class="st">"fluanalysis"</span>, <span class="st">"data"</span>, <span class="st">"processed_data.rds"</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#modeling with RunnyNose</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyTemp<span class="sc">~</span>RunnyNose,<span class="at">data=</span>fit1)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#modeling with all</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(BodyTemp<span class="sc">~</span>.,<span class="at">data=</span>fit1)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#compare lm1 and lm2</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(lm1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2329.346</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(lm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(lm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2303.84</code></pre>
+<pre><code>[1] 2303.623</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lm1,lm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lm1,lm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
 Model 1: BodyTemp ~ RunnyNose
 Model 2: BodyTemp ~ SwollenLymphNodes + ChestCongestion + ChillsSweats + 
-    NasalCongestion + CoughYN + Sneeze + Fatigue + SubjectiveFever + 
-    Headache + Weakness + WeaknessYN + CoughIntensity + CoughYN2 + 
-    Myalgia + MyalgiaYN + RunnyNose + AbPain + ChestPain + Diarrhea + 
-    EyePn + Insomnia + ItchyEye + Nausea + EarPn + Hearing + 
-    Pharyngitis + Breathless + ToothPn + Vision + Vomit + Wheeze
+    NasalCongestion + Sneeze + Fatigue + SubjectiveFever + Headache + 
+    Weakness + CoughIntensity + Myalgia + RunnyNose + AbPain + 
+    ChestPain + Diarrhea + EyePn + Insomnia + ItchyEye + Nausea + 
+    EarPn + Hearing + Pharyngitis + Breathless + ToothPn + Vision + 
+    Vomit + Wheeze
   Res.Df     RSS Df Sum of Sq      F    Pr(&gt;F)    
 1    728 1030.53                                  
-2    695  909.12 33    121.41 2.8126 4.811e-07 ***
+2    696  911.35 32    119.19 2.8445 4.933e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 <p>Both AIC method and anove test show that lm2 is better than lm1 statistically.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#logit model with RunnyNose</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>logit1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(Nausea <span class="sc">~</span>RunnyNose, <span class="at">data =</span> fit1, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#logit model will all other</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>logit2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(Nausea <span class="sc">~</span>., <span class="at">data =</span> fit1, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>logit1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#logit model with RunnyNose</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>logit1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(Nausea <span class="sc">~</span>RunnyNose, <span class="at">data =</span> fit1, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#logit model will all other</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>logit2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(Nausea <span class="sc">~</span>., <span class="at">data =</span> fit1, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>logit1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:  glm(formula = Nausea ~ RunnyNose, family = "binomial", data = fit1)
@@ -301,42 +303,40 @@ Degrees of Freedom: 729 Total (i.e. Null);  728 Residual
 Null Deviance:      944.7 
 Residual Deviance: 944.6    AIC: 948.6</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>logit2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>logit2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:  glm(formula = Nausea ~ ., family = "binomial", data = fit1)
 
 Coefficients:
            (Intercept)    SwollenLymphNodesYes      ChestCongestionYes  
-              0.222870               -0.251083                0.275554  
-       ChillsSweatsYes      NasalCongestionYes              CoughYNYes  
-              0.274097                0.425817               -0.140423  
-             SneezeYes              FatigueYes      SubjectiveFeverYes  
-              0.176724                0.229062                0.277741  
-           HeadacheYes            WeaknessMild        WeaknessModerate  
-              0.331259               -0.121606                0.310849  
-        WeaknessSevere           WeaknessYNYes      CoughIntensityMild  
-              0.823187                      NA               -0.220794  
-CoughIntensityModerate    CoughIntensitySevere             CoughYN2Yes  
-             -0.362678               -0.950544                      NA  
+              0.354800               -0.249429                0.267908  
+       ChillsSweatsYes      NasalCongestionYes               SneezeYes  
+              0.278658                0.427414                0.177783  
+            FatigueYes      SubjectiveFeverYes             HeadacheYes  
+              0.229345                0.273061                0.333450  
+          WeaknessMild        WeaknessModerate          WeaknessSevere  
+             -0.118025                0.314540                0.831106  
+    CoughIntensityMild  CoughIntensityModerate    CoughIntensitySevere  
+             -0.336382               -0.497253               -1.083273  
            MyalgiaMild         MyalgiaModerate           MyalgiaSevere  
-             -0.004146                0.204743                0.120758  
-          MyalgiaYNYes            RunnyNoseYes               AbPainYes  
-                    NA                0.045324                0.939304  
-          ChestPainYes             DiarrheaYes                EyePnYes  
-              0.070777                1.063934               -0.341991  
-           InsomniaYes             ItchyEyeYes                EarPnYes  
-              0.084175               -0.063364               -0.181719  
-            HearingYes          PharyngitisYes           BreathlessYes  
-              0.323052                0.275364                0.526801  
-            ToothPnYes               VisionYes                VomitYes  
-              0.480649                0.125498                2.458466  
-             WheezeYes                BodyTemp  
-             -0.304435               -0.031246  
+             -0.003279                0.207185                0.123741  
+          RunnyNoseYes               AbPainYes            ChestPainYes  
+              0.039946                0.938752                0.069675  
+           DiarrheaYes                EyePnYes             InsomniaYes  
+              1.062315               -0.336984                0.083388  
+           ItchyEyeYes                EarPnYes              HearingYes  
+             -0.064552               -0.184794                0.327093  
+        PharyngitisYes           BreathlessYes              ToothPnYes  
+              0.279516                0.527816                0.483253  
+             VisionYes                VomitYes               WheezeYes  
+              0.120227                2.458305               -0.307664  
+              BodyTemp  
+             -0.032682  
 
-Degrees of Freedom: 729 Total (i.e. Null);  695 Residual
+Degrees of Freedom: 729 Total (i.e. Null);  696 Residual
 Null Deviance:      944.7 
-Residual Deviance: 751.5    AIC: 821.5</code></pre>
+Residual Deviance: 751.5    AIC: 819.5</code></pre>
 </div>
 </div>
 <p>AIC shows that logit2 is better than logit1.</p>
@@ -344,58 +344,19 @@ Residual Deviance: 751.5    AIC: 821.5</code></pre>
 <section id="fitting-by-the-method-in-this-module" class="level2">
 <h2 class="anchored" data-anchor-id="fitting-by-the-method-in-this-module">fitting by the method in this module</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidymodels' was built under R version 4.2.2</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.0.0 ──</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>✔ broom        1.0.0     ✔ recipes      1.0.5
+<pre><code>✔ broom        1.0.4     ✔ recipes      1.0.5
 ✔ dials        1.1.0     ✔ rsample      1.1.1
-✔ dplyr        1.1.0     ✔ tibble       3.1.8
-✔ ggplot2      3.3.6     ✔ tidyr        1.2.0
+✔ dplyr        1.1.1     ✔ tibble       3.2.1
+✔ ggplot2      3.4.1     ✔ tidyr        1.3.0
 ✔ infer        1.0.4     ✔ tune         1.0.1
 ✔ modeldata    1.1.0     ✔ workflows    1.1.3
 ✔ parsnip      1.0.4     ✔ workflowsets 1.0.0
-✔ purrr        0.3.4     ✔ yardstick    1.1.0</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'dials' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'dplyr' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'infer' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'modeldata' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'parsnip' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'recipes' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'rsample' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tibble' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tune' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'workflows' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'workflowsets' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'yardstick' was built under R version 4.2.2</code></pre>
+✔ purrr        1.0.1     ✔ yardstick    1.1.0</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
@@ -405,16 +366,16 @@ Residual Deviance: 751.5    AIC: 821.5</code></pre>
 ✖ yardstick::mae()  masks performance::mae()
 ✖ yardstick::rmse() masks performance::rmse()
 ✖ recipes::step()   masks stats::step()
-• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
+• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set the engine</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>engine1<span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) </span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co">#fit the model by RunnyNose</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>lm1a <span class="ot">&lt;-</span> engine1 <span class="sc">%&gt;%</span>  <span class="fu">fit</span>(BodyTemp<span class="sc">~</span>RunnyNose, <span class="at">data=</span>fit1)</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>lm1a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set the engine</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>engine1<span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#fit the model by RunnyNose</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>lm1a <span class="ot">&lt;-</span> engine1 <span class="sc">%&gt;%</span>  <span class="fu">fit</span>(BodyTemp<span class="sc">~</span>RunnyNose, <span class="at">data=</span>fit1)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>lm1a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>parsnip model object
 
@@ -426,9 +387,9 @@ Coefficients:
  (Intercept)  RunnyNoseYes  
      99.1431       -0.2926  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fit the model by all</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>lm2a <span class="ot">&lt;-</span> engine1 <span class="sc">%&gt;%</span>  <span class="fu">fit</span>(BodyTemp<span class="sc">~</span>., <span class="at">data=</span>fit1)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>lm2a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fit the model by all</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>lm2a <span class="ot">&lt;-</span> engine1 <span class="sc">%&gt;%</span>  <span class="fu">fit</span>(BodyTemp<span class="sc">~</span>., <span class="at">data=</span>fit1)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>lm2a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>parsnip model object
 
@@ -438,107 +399,88 @@ stats::lm(formula = BodyTemp ~ ., data = data)
 
 Coefficients:
            (Intercept)    SwollenLymphNodesYes      ChestCongestionYes  
-             97.925243               -0.165302                0.087326  
-       ChillsSweatsYes      NasalCongestionYes              CoughYNYes  
-              0.201266               -0.215771                0.313893  
-             SneezeYes              FatigueYes      SubjectiveFeverYes  
-             -0.361924                0.264762                0.436837  
-           HeadacheYes            WeaknessMild        WeaknessModerate  
-              0.011453                0.018229                0.098944  
-        WeaknessSevere           WeaknessYNYes      CoughIntensityMild  
-              0.373435                      NA                0.084881  
-CoughIntensityModerate    CoughIntensitySevere             CoughYN2Yes  
-             -0.061384               -0.037272                      NA  
+             97.942664               -0.166759                0.099264  
+       ChillsSweatsYes      NasalCongestionYes               SneezeYes  
+              0.191614               -0.220218               -0.365929  
+            FatigueYes      SubjectiveFeverYes             HeadacheYes  
+              0.267777                0.444491                0.006544  
+          WeaknessMild        WeaknessModerate          WeaknessSevere  
+              0.010970                0.094045                0.360500  
+    CoughIntensityMild  CoughIntensityModerate    CoughIntensitySevere  
+              0.344139                0.243298                0.265556  
            MyalgiaMild         MyalgiaModerate           MyalgiaSevere  
-              0.164242               -0.024064               -0.129263  
-          MyalgiaYNYes            RunnyNoseYes               AbPainYes  
-                    NA               -0.080485                0.031574  
-          ChestPainYes             DiarrheaYes                EyePnYes  
-              0.105071               -0.156806                0.131544  
-           InsomniaYes             ItchyEyeYes               NauseaYes  
-             -0.006824               -0.008016               -0.034066  
-              EarPnYes              HearingYes          PharyngitisYes  
-              0.093790                0.232203                0.317581  
-         BreathlessYes              ToothPnYes               VisionYes  
-              0.090526               -0.022876               -0.274625  
-              VomitYes               WheezeYes  
-              0.165272               -0.046665  </code></pre>
+              0.162851               -0.029139               -0.134656  
+          RunnyNoseYes               AbPainYes            ChestPainYes  
+             -0.070649                0.023299                0.107697  
+           DiarrheaYes                EyePnYes             InsomniaYes  
+             -0.151106                0.123979               -0.007139  
+           ItchyEyeYes               NauseaYes                EarPnYes  
+             -0.002265               -0.034987                0.097256  
+            HearingYes          PharyngitisYes           BreathlessYes  
+              0.228115                0.310787                0.089794  
+            ToothPnYes               VisionYes                VomitYes  
+             -0.028160               -0.264254                0.160091  
+             WheezeYes  
+             -0.038518  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm1a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm1a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 12
-  r.squ…¹ adj.r…² sigma stati…³ p.value    df logLik   AIC   BIC devia…⁴ df.re…⁵
-    &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt;
-1  0.0123  0.0110  1.19    9.08 0.00268     1 -1162. 2329. 2343.   1031.     728
-# … with 1 more variable: nobs &lt;int&gt;, and abbreviated variable names
-#   ¹​r.squared, ²​adj.r.squared, ³​statistic, ⁴​deviance, ⁵​df.residual
-# ℹ Use `colnames()` to see all variable names</code></pre>
+  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1    0.0123        0.0110  1.19      9.08 0.00268     1 -1162. 2329. 2343.
+# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm2a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lm2a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 12
-  r.squ…¹ adj.r…² sigma stati…³ p.value    df logLik   AIC   BIC devia…⁴ df.re…⁵
-    &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt;
-1   0.129  0.0860  1.14    3.02 4.20e-8    34 -1116. 2304. 2469.    909.     695
-# … with 1 more variable: nobs &lt;int&gt;, and abbreviated variable names
-#   ¹​r.squared, ²​adj.r.squared, ³​statistic, ⁴​deviance, ⁵​df.residual
-# ℹ Use `colnames()` to see all variable names</code></pre>
+  r.squared adj.r.squared sigma statistic      p.value    df logLik   AIC   BIC
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     0.127        0.0851  1.14      3.06 0.0000000424    33 -1117. 2304. 2464.
+# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#logit model by RunnyNose</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>engine2<span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) </span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>logit1a <span class="ot">&lt;-</span> engine2 <span class="sc">%&gt;%</span>  <span class="fu">fit</span>(Nausea<span class="sc">~</span>RunnyNose, <span class="at">data=</span>fit1)</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="co">#logit model by all</span></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>logit2a <span class="ot">&lt;-</span> engine2 <span class="sc">%&gt;%</span>  <span class="fu">fit</span>(Nausea<span class="sc">~</span>., <span class="at">data=</span>fit1)</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(logit1a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#logit model by RunnyNose</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>engine2<span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>logit1a <span class="ot">&lt;-</span> engine2 <span class="sc">%&gt;%</span>  <span class="fu">fit</span>(Nausea<span class="sc">~</span>RunnyNose, <span class="at">data=</span>fit1)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#logit model by all</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>logit2a <span class="ot">&lt;-</span> engine2 <span class="sc">%&gt;%</span>  <span class="fu">fit</span>(Nausea<span class="sc">~</span>., <span class="at">data=</span>fit1)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(logit1a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 8
   null.deviance df.null logLik   AIC   BIC deviance df.residual  nobs
           &lt;dbl&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt; &lt;int&gt;
 1          945.     729  -472.  949.  958.     945.         728   730</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(logit2a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(logit2a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 8
   null.deviance df.null logLik   AIC   BIC deviance df.residual  nobs
           &lt;dbl&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt; &lt;int&gt;
-1          945.     729  -376.  821.  982.     751.         695   730</code></pre>
+1          945.     729  -376.  820.  976.     752.         696   730</code></pre>
 </div>
 </div>
 <p><strong>Comparing</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compare_performance</span>(lm1a,lm2a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compare_performance</span>(lm1a,lm2a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Comparison of Model Performance Indices
 
 Name | Model |  AIC (weights) | AICc (weights) |  BIC (weights) |    R2 | R2 (adj.) |  RMSE | Sigma
 ---------------------------------------------------------------------------------------------------
 lm1a |   _lm | 2329.3 (&lt;.001) | 2329.4 (&lt;.001) | 2343.1 (&gt;.999) | 0.012 |     0.011 | 1.188 | 1.190
-lm2a |   _lm | 2303.8 (&gt;.999) | 2307.7 (&gt;.999) | 2469.2 (&lt;.001) | 0.129 |     0.086 | 1.116 | 1.144</code></pre>
+lm2a |   _lm | 2303.6 (&gt;.999) | 2307.3 (&gt;.999) | 2464.4 (&lt;.001) | 0.127 |     0.085 | 1.117 | 1.144</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compare_performance</span>(logit1a,logit2a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-prediction from a rank-deficient fit may be misleading
-
-Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-prediction from a rank-deficient fit may be misleading
-
-Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-prediction from a rank-deficient fit may be misleading
-
-Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-prediction from a rank-deficient fit may be misleading</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compare_performance</span>(logit1a,logit2a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Comparison of Model Performance Indices
 
 Name    | Model | AIC (weights) | AICc (weights) | BIC (weights) | Tjur's R2 |  RMSE | Sigma | Log_loss | Score_log | Score_spherical |   PCP
 ---------------------------------------------------------------------------------------------------------------------------------------------
 logit1a |  _glm | 948.6 (&lt;.001) |  948.6 (&lt;.001) | 957.8 (&gt;.999) | 1.169e-04 | 0.477 | 1.139 |    0.647 |  -107.871 |           0.012 | 0.545
-logit2a |  _glm | 821.5 (&gt;.999) |  825.1 (&gt;.999) | 982.2 (&lt;.001) |     0.247 | 0.414 | 1.040 |    0.515 |      -Inf |           0.002 | 0.658</code></pre>
+logit2a |  _glm | 819.5 (&gt;.999) |  823.0 (&gt;.999) | 975.7 (&lt;.001) |     0.247 | 0.414 | 1.039 |    0.515 |      -Inf |           0.002 | 0.658</code></pre>
 </div>
 </div>
 <p>Both comparisions shows that having all variables are better than having only main.</p>
