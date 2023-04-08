@@ -18,6 +18,8 @@ website:
             href: ./tidytuesday_exercise.html
           - text: "Data Analysis Exercise"
             href: ./dataanalysis_exercise.html
+          - text: "Tidy Tuesday 2 Exercise"
+            href: ./tidytuesday_exercise2.html            
       - text: "Flu Analysis"
         menu:
           - text: "Exploration"
@@ -34,7 +36,7 @@ website:
 
     right:
       - icon: github 
-        href: URL-TO-THIS-REPOSITORY-HERE        
+        href: https://github.com/yl3362/yaolu-MADA-portfolio    
 
 format:
   html:

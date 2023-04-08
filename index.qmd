@@ -11,7 +11,7 @@ output:
 
 Welcome to **my website** and _data analysis portfolio._ 
 
-Here is the [link](https://github.com/yl3362/yaolu-MADA-portfolio) to Github repo.
+Top right is the link to repo.
 
 * Please use the `Menu Bar` above to look around.
 * Have fun!
