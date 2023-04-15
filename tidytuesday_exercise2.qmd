@@ -4,4 +4,88 @@ output:
   html_document:
     toc: FALSE
 ---
-To be filled.
+
+```{r, include=FALSE, cache=FALSE}
+knitr::read_chunk('tidytuesday_exercise2.R')
+```
+
+```{r,setup}
+```
+After viewing the dictionary of this data. I was considering these questions as interesting questions. How can we get more table-egg? How can we get more high-quality egg?
+
+Based on our dataset, our interest of outcome is table-egg. Since I am not a egg-picky person. So, I will focus on all table egg.(Though sometime I will buy organic eggs.) From observed, in 'cagefreepercentages', there are many NA in percent_eggs. Also, these NA observations have a non-organized observed date. Here I need to make a decision that if I should choose the authenticity or integrity. In cagefreepercentages, source from paper has authenticity but lose integrity, since it miss some month. Source from computed has integrity but lose part of authenticity. In this initial, I decide to choose integrity. There are some reasons. First, this is initial part of the analysis, we need to explore more to get a good research question. Second, I glimpse most authenticity. Though there are some difference, there is not much difference between paper and computed. Third, the date from the paper is not well organized.
+
+Then we combine the data by observed_month.
+
+```{r,combine}
+```
+
+Here we find that, there are two NA in percent_hens. Luckly, it's the first two and last two observations.
+So, I just drop them and use the middle part of the data.Also we don't need source.
+
+```{r,drop1}
+```
+
+visualize the data. And here we generate two new variables 'n_eggs_table eggs_housing'='n_eggs_table eggs_all'-'n_eggs_table eggs_cage-free(organic)'-'n_eggs_table eggs_cage-free(non-organic)'. Similar as 'n_hens_table eggs_housing'. 
+
+```{r,explore}
+```
+Based on the absolute value plot. Looks like only n_eggs_table eggs_cage-free(non-organic) are increasing over the time. Other variables are just flucuate over time.
+
+
+```{r,explore1}
+```
+Based on the relative value plot. Here we can see both the percentage of cage_free eggs and hens are increasing. Almost exact same trend.Then our final interest of outcome is 'n_eggs_table eggs_all'.
+
+```{r,clean}
+```
+Since eggs_all=cage_free+housing, so there is 100% linear relationship. We don't want that all in our model. But we want to see if the percentage influence our outcome. We can build percentage instead. For simplicity, we just remove these values. Similar as the number of hens. 
+
+Then we went into machine learning part. Here we do null,linear,tree, LASSO, random forest models.
+
+```{r,load}
+```
+
+This is our null model
+
+```{r,null}
+```
+
+This is our linear model
+
+```{r,linear}
+```
+
+These are tree,LASSO and random forest models.
+```{r,spec}
+```
+
+```{r,wf}
+```
+
+```{r,grid}
+```
+
+```{r,cv,warning=FALSE,message = FALSE}
+```
+
+There are the evaluation for tree,LASSO and random forest models.
+```{r,evaluation1}
+```
+
+```{r,evalasso}
+```
+
+```{r,evarf}
+```
+
+Here are the model comparison
+```{r,nullcom}
+```
+
+We can find LASSO is the best. Lasso is silght better than linear base on rmse.
+
+```{r,finaleval}
+```
+
+We can see that predict vs actual plot is OK. Residual plot is OK. We can also find the predictor importance. 
